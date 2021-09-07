@@ -1,0 +1,47 @@
+{
+  "properties": [
+    {
+      "name": "base.log.path",
+      "type": "java.lang.String",
+      "description": "日志文件路径",
+      "defaultValue": "logs/busi"
+    },
+    {
+      "name": "base.log.pattern.console",
+      "type": "java.lang.String",
+      "description": "控制台日志pattern",
+      "defaultValue": "${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"
+    },
+    {
+      "name": "base.log.pattern.file",
+      "type": "java.lang.String",
+      "description": "文件日志pattern",
+      "defaultValue": "%d{yyyy-MM-dd HH:mm:ss:SSS} %property{app.name} [%thread] %-5level %logger{36}[%L] [TxId : %X{PtxId} , SpanId : %X{PspanId}]- %msg%n"
+    },
+    {
+      "name": "base.log.microservice.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用性能日志输出",
+      "defaultValue": false
+    },
+    {
+      "name": "base.log.microservice.printResult",
+      "type": "java.lang.Boolean",
+      "description": "是否在性能日志中打印方法返回结果",
+      "defaultValue": false
+    },
+    {
+      "name": "hystrix.disable",
+      "type": "java.lang.Boolean",
+      "description": "是否禁用hystrix功能",
+      "defaultValue": false
+    },
+    {
+      "name": "schedule.disable",
+      "type": "java.lang.Boolean",
+      "description": "是否禁用hystrix功能",
+      "defaultValue": false
+    }
+  ]
+}
+

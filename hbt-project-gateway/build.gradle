@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.hbt.project.gateway'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    // 排除 spring-boot-starter-web 包，gateway不能依赖web
+    compile.exclude module: 'spring-boot-starter-web'
+//    all*.exclude group: 'org.gradle.test.excludes', module: 'reports'
+}
+
+dependencies {
+    implementation group: 'com.alibaba.cloud', name: 'spring-cloud-starter-alibaba-nacos-discovery'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-gateway'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

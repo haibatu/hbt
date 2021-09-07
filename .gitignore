@@ -1,0 +1,19 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+.idea
+gradle
+.gradle/
+logs
+hbt-common/build
+hbt-common-base/build
+hbt-common-iom/build
+hbt-common-jdbc/build
+hbt-common-redis/build
+hbt-common-web/build
+
+hbt-project/build
+hbt-project-ability/build
+hbt-project-gateway/build
+hbt-project-register/nacos
+
+

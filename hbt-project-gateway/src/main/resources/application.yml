@@ -1,0 +1,43 @@
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 8849
+spring:
+  application:
+    name: hbt-project-gateway
+  jmx:
+    enabled: false
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      # 网关跨域
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - FETCH
+      # 网关发现
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      # 网关路由配置
+      routes:
+        - id: hbt-project-gateway
+          uri: lb://hbt-project-gateway # lb表示从注册中心获取服务
+          predicates:
+            - Path=/hbt-project-gateway/**
+        - id: hbt-project-ability
+          uri: lb://hbt-project-ability # lb表示从注册中心获取服务
+          predicates:
+            - Path=/hbt-project-ability/**

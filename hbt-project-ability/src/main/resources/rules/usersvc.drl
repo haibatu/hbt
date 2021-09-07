@@ -1,0 +1,22 @@
+/** 配置包，规则文件中，package是必须定义的，必须放在规则文件第一行 */
+package rules
+
+/** 导入依赖， 规则文件使用到的外部变量，可以是一个类，也可以是类中的可访问的静态方法 */
+import com.hbt.project.ability.domain.bo.UserSvc
+/** 使用语言， 有java、mevl */
+/** mvel是一种嵌入式脚本语言,在规则文件上可以用这种语言建立他们的断言、返回值、Eval和推论。 */
+/** mvel分解析模式(Interpreted Mode)和编译模式(Compiled Mode) */
+dialect  "java"
+
+/** 规则名称，定义一个规则。paramcheck1规则名。规则通常包含三个部分：属性、条件、结果;*/
+rule "mainCall"
+    /** 定义优先级，数字越大，优先级越高 */
+    salience 1
+    when
+//        $u: UserSvc()
+        $userSvc : UserSvc(serviceId == "50000");
+
+    then
+        System.out.println("主服务是：" + $userSvc.getServiceName());
+        System.out.println("other service" + $userSvc.getServiceId());
+end

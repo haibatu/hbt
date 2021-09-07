@@ -1,0 +1,97 @@
+
+
+// 全局公用的构建配置
+buildscript {
+    ext {
+        springBootVersion = '2.3.0.RELEASE'
+    }
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 所有模块/项目的通用配置
+allprojects {
+    group 'com.hbt'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'idea'
+}
+
+// 子模块/项目的统一配置
+subprojects {
+    /* 使用二进制插件 */
+    /* java是Gradle的核心插件，是内置的，内置插件不需要配置依赖路径 */
+    apply plugin: 'java'
+    /* 同上  让Gradle自动生成Intellij的项目文件*/
+    apply plugin: 'idea'
+    /* 注意gradle插件不再自动应用，所以这里需要指定 */
+    apply plugin: 'org.springframework.boot'
+
+    apply plugin: 'io.spring.dependency-management'
+
+    // 指定JDK版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    /* java编译的时候缺省状态下会因为中文字符而失败 */
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url="http://maven.aliyun.com/nexus/content/repositories/central/"}
+    }
+    ext {//依赖版本
+        set('springBootVersion', '2.3.0.RELEASE')
+        set('mysqlConnectorVersion', '8.0.13')
+        set('mybatisStarterVersion', '1.3.2')
+        set('fastjsonVersion', '1.2.54')
+        set('springCloudAlibabaVersion', "2.2.3.RELEASE")
+        set('springCloudVersion', "Hoxton.SR8")
+        set('axisVersion', '1.4')
+        set('hutoolVersion', '5.7.8')
+        set('guavaVersion', '30.1.1-jre')
+        set('lombokVersion', '1.18.20')
+        set('droolsVersion', '7.14.0.Final')
+        set('swaggerVersion', '3.0.0')
+        set('servletVersion', '4.0.1')
+    }
+    dependencies {
+//        compile("javax.servlet:javax.servlet-api:4.0.1")
+//        compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+//        compile("org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion")
+//        compile("org.springframework.boot:spring-boot-starter-logging:$springBootVersion")
+//        compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisStarterVersion")
+//        compile("mysql:mysql-connector-java:$mysqlConnectorVersion")
+        compile("com.alibaba:fastjson:$fastjsonVersion")
+        compile("cn.hutool:hutool-all:$hutoolVersion")
+        compile("com.google.guava:guava:$guavaVersion")
+        compile("org.projectlombok:lombok:$lombokVersion")
+
+//        compile("org.apache.axis:axis:$axisVersion")
+//        compile("org.apache.axis:axis-jaxrpc:$axisVersion")
+//
+//        compile("org.drools:drools-core:$droolsVersion")
+//        compile("org.drools:drools-bom:$droolsVersion")
+//        compile("org.drools:drools-compiler:$droolsVersion")
+//        // 决策，就是excel文件编写的规则
+//        compile("org.drools:drools-decisiontables:$droolsVersion")
+//        // 模板
+//        compile("org.drools:drools-templates:$droolsVersion")
+//        compile("org.kie:kie-api:$droolsVersion")
+
+
+        testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+        testCompile("junit:junit:4.12")
+    }
+    configurations {
+        //移除spring boot 默认logger依赖
+//        all*.exclude module: 'spring-boot-starter-logging'
+    }
+    dependencyManagement {
+        imports {
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}

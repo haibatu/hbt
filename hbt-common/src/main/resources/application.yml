@@ -1,0 +1,7 @@
+## 框架基础配置
+#base:
+#  logs:  # 日志配置
+#    microservice:
+#      enable: true # 开启性能日志
+#      printResult: true # 打印输出结果
+#      printWeb: true # 打印输出结果

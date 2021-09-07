@@ -1,0 +1,3 @@
+rootProject.name = 'hbt-project-ability'
+includeFlat 'hbt-common-iom'
+includeFlat 'hbt-common-web'

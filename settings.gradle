@@ -1,0 +1,11 @@
+rootProject.name = 'hbt'
+include 'hbt-common'
+include 'hbt-common-iom'
+include 'hbt-common-jdbc'
+include 'hbt-common-redis'
+include 'hbt-common-web'
+include 'hbt-project'
+include 'hbt-project-ability'
+include 'hbt-project-register'
+include 'hbt-project-gateway'
+
