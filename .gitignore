@@ -4,6 +4,7 @@
 gradle
 .gradle/
 logs
+
 hbt-common/build
 hbt-common-base/build
 hbt-common-iom/build
@@ -14,6 +15,9 @@ hbt-common-web/build
 hbt-project/build
 hbt-project-ability/build
 hbt-project-gateway/build
+
+#
 hbt-project-register/nacos
+hbt-project-register/seata
 
 

@@ -1,0 +1,21 @@
+server:
+  port: 8850
+spring:
+  application:
+    name: hbt-project-ability
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+# 框架基础配置
+base:
+  log:  # 日志配置
+    microservice:
+      enable: true # 开启性能日志
+      printResult: true # 打印输出结果
+      printWeb: true # 打印输出结果

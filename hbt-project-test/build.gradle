@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.hbt.project.test'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':hbt-common-web')
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-seata'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-sentinel'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//    implementation 'io.seata:seata-spring-boot-starter:$alibabaSeatajsonVersion'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
