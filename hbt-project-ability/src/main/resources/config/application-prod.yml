@@ -1,21 +1,122 @@
-server:
-  port: 8850
-spring:
-  application:
-    name: hbt-project-ability
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-management:
-  endpoint:
-    web:
-      exposure:
-        include: "*"
-# 框架基础配置
+## 框架基础配置
 base:
   log:  # 日志配置
     microservice:
       enable: true # 开启性能日志
       printResult: true # 打印输出结果
       printWeb: true # 打印输出结果
+
+## 定义切面
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+
+## 端口
+server:
+  port: 8838
+
+## spring配置
+spring:
+  application:
+    name: hbt-project-ability
+  ## nacos配置中心
+  #  cloud:
+  #    nacos:
+  #      discovery:
+  #        server-addr: 127.0.0.1:8848
+
+  jpa:
+    open-in-view: false
+    database: oracle
+    show-sql: true
+  main:
+    # 遇到相同名字时，是否允许覆盖
+    allow-bean-definition-overriding: true
+  # 分布式锁
+  #  jta:
+  #    transaction-manager-id: txManager
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # mysql
+      crmdb:
+        #      driver-class-name: com.mysql.cj.jdbc.Driver
+        #      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true&rewriteBatchedStatements=true&autoReconnect=true
+        #      username: root
+        #      password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@132.80.241.214:11521:ngcrm
+        username: uop_crm1
+        password: c_2b2fcn
+
+        #      jdbc-url: jdbc:oracle:thin:@132.77.54.12:1526:bjcbcxdb2
+        #      username: kfkapp
+        #      password: B6.sitech321
+        initialSize: 2
+        minIdle: 2
+        maxActive: 20
+        maxWait: 60000
+        minPoolSize: 3
+        maxPoolSize: 25
+        maxLifetime: 20000
+        borrowConnectionTimeout: 30
+        loginTimeout: 30
+        maintenanceInterval: 60
+        maxIdleTime: 60
+      # mysql
+      cbss1db:
+        #      driver-class-name: com.mysql.cj.jdbc.Driver
+        #      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true&rewriteBatchedStatements=true&autoReconnect=true
+        #      username: root
+        #      password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@132.80.241.214:11521:ngcrm
+        username: uop_crm1
+        password: c_2b2fcn
+
+        #      jdbc-url: jdbc:oracle:thin:@132.77.54.12:1526:bjcbcxdb2
+        #      username: kfkapp
+        #      password: B6.sitech321
+        initialSize: 2
+        minIdle: 2
+        maxActive: 20
+        maxWait: 60000
+        minPoolSize: 3
+        maxPoolSize: 25
+        maxLifetime: 20000
+        borrowConnectionTimeout: 30
+        loginTimeout: 30
+        maintenanceInterval: 60
+        maxIdleTime: 60
+
+
+      cbss2db:
+        #      driver-class-name: com.mysql.cj.jdbc.Driver
+        #      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true&rewriteBatchedStatements=true&autoReconnect=true
+        #      username: root
+        #      password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@132.80.241.214:11521:ngcrm
+        username: uop_crm1
+        password: c_2b2fcn
+
+        #      jdbc-url: jdbc:oracle:thin:@132.77.54.5:1526:wcxdb
+        #      username: UCR_QRY
+        #      password: B6.sitech!312
+        initialSize: 2
+        minIdle: 2
+        maxActive: 20
+        maxWait: 60000
+        minPoolSize: 3
+        maxPoolSize: 25
+        maxLifetime: 20000
+        borrowConnectionTimeout: 30
+        loginTimeout: 30
+        maintenanceInterval: 60
+        maxIdleTime: 60
