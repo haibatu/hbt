@@ -3,7 +3,7 @@
 // 全局公用的构建配置
 buildscript {
     ext {
-        springBootVersion = '2.3.0.RELEASE'
+        springBootVersion = '2.3.3.RELEASE'
     }
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
@@ -41,25 +41,55 @@ subprojects {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         maven{ url="http://maven.aliyun.com/nexus/content/repositories/central/"}
     }
-    ext {//依赖版本
-        set('springCloudAlibabaVersion', "2.2.3.RELEASE")
+    // 依赖版本
+    ext {
+//        springBootVersion = '2.3.3.RELEASE'
+//        springCloudVersion = 'Hoxton.SR8'
+//        springCloudAlibabaVersion = '2.2.3.RELEASE'
+//        alibabaNacosjsonVersion = '1.4.1'
+//        alibabaSeatajsonVersion = '1.4.1'
+//
+//        alibabaFastjsonVersion = '1.2.54'
+//        commonLang3Version = '3.11'
+//        guavaVersion = '30.1.1-jre'
+//        hutoolVersion = '5.7.8'
+//        lombokVersion = '1.18.20'
+//
+//        swaggerVersion = '3.0.0'
+//        servletVersion = '4.0.1'
+//
+//        alibabaDruidVersion = '1.2.5'
+//        mysqlConnectorVersion = '8.0.13'
+//        mybatisStarterVersion = '1.3.2'
+//        orai18nVersion = '11.2.0.4'
+//        springDataJdbcVersion = '2.2.4'
+//
+//        axisVersion = '1.4'
+//        droolsVersion = '7.14.0.Final'
+//
+        set('springBootVersion', '2.3.3.RELEASE')
         set('springCloudVersion', "Hoxton.SR8")
-        set('springBootVersion', '2.3.0.RELEASE')
-        set('springDataJdbcVersion', '2.2.4')
-        set('alibabaDruidVersion', '1.2.3')
-        set('alibabaFastjsonVersion', '1.2.54')
+        set('springCloudAlibabaVersion', "2.2.3.RELEASE")
         set('alibabaNacosjsonVersion', '1.4.1')
         set('alibabaSeatajsonVersion', '1.4.1')
-        set('mysqlConnectorVersion', '8.0.13')
-        set('mybatisStarterVersion', '1.3.2')
-        set('axisVersion', '1.4')
-        set('hutoolVersion', '5.7.8')
+
+        set('alibabaFastjsonVersion', '1.2.54')
+        set('commonLang3Version', '5.7.8')
         set('guavaVersion', '30.1.1-jre')
+        set('hutoolVersion', '5.7.8')
         set('lombokVersion', '1.18.20')
-        set('droolsVersion', '7.14.0.Final')
+
         set('swaggerVersion', '3.0.0')
         set('servletVersion', '4.0.1')
+
+        set('alibabaDruidVersion', '1.2.3')
+        set('mysqlConnectorVersion', '8.0.13')
+        set('mybatisStarterVersion', '1.3.2')
         set('orai18nVersion', '11.2.0.4')
+        set('springDataJdbcVersion', '2.2.4')
+
+        set('axisVersion', '1.4')
+        set('droolsVersion', '7.14.0.Final')
     }
     dependencies {
 //        compile("javax.servlet:javax.servlet-api:4.0.1")
